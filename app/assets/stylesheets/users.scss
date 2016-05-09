@@ -1,0 +1,27 @@
+.self{
+  .username{
+    text-shadow: 1px 1px #000;
+    font-weight: bold;
+  }
+  .card-content{
+    .num-info{
+      font-size: 22px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .bio{
+      font-size: 20px;
+    }
+  }
+  .card-action{
+    width: 100%;
+    margin: 0;
+    padding: 18px;
+    .tag-wrapper{
+      margin-bottom: 5px;
+      .col{
+        line-height: 1.5em;
+      }
+    }
+  }
+}

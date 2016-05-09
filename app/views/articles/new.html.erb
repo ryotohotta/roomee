@@ -1,0 +1,27 @@
+<div class="form-wrapper">
+  <%= form_for(@article, html:{class: 'image-form'}, :html => {:multipart => true}) do |f| %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>画像を選択</span>
+        <%= f.file_field :image %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+    <div class="input-field col s12 category-form">
+      <%= f.select :category, ["外観", "リビング", "ベッドルーム", "キッチン", "玄関", "バルコニー", "庭", "オフィス"], :prompt => "選んでください" %>
+      <%= f.label :category, "カテゴリー" %>
+    </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_area :comment, :class => "materialize-textarea" %>
+          <%= f.label :icon_prefix2, "コメントする" %>
+       </div>
+      </div>
+    <button class="btn-large waves-effect waves-light right" name="action">
+      <%= f.submit "投稿する" %>
+    </button>
+    <div class="clearfix"></div>
+  <% end %>
+</div>

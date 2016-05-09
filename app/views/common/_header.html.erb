@@ -1,0 +1,63 @@
+
+<nav class="teal darken-2">
+  <div class="nav-wrapper">
+    <%= link_to "ROOMEE", "/", :class => "brand-logo" %>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <% if user_signed_in? %>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/users/<%= current_user.id %>"><i class="material-icons float-left">perm_identity</i>マイページ</a></li>
+        <li>
+          <%= link_to "/articles/new", :method => :get do %>
+            <i class="material-icons float-left">perm_media</i>投稿する
+          <% end %>
+        </li>
+        <li><a href=""><i class="material-icons float-left">settings_applications</i>設定</a></li>
+        <li>
+          <%= link_to "/users/sign_out", :method => :delete do %>
+            <i class="material-icons float-left">trending_flat</i>ログアウト
+          <% end %>
+        </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="/users/<%= current_user.id %>"><i class="material-icons float-left">perm_identity</i>マイページ</a></li>
+        <li>
+          <%= link_to "/articles/new", :method => :get do %>
+            <i class="material-icons float-left">perm_media</i>投稿する
+          <% end %>
+        </li>
+        <li><a href=""><i class="material-icons float-left left">settings</i>設定</a></li>
+        <li>
+          <%= link_to "/users/sign_out", :method => :delete do %>
+            <i class="material-icons float-left">trending_flat</i>ログアウト
+          <% end %>
+        </li>
+        <div class="clearfix"></div>
+      </ul>
+    <% else %>
+      <ul class="right hide-on-med-and-down">
+        <li>
+          <%= link_to "/users/sign_up", :method => :get do %>
+            <i class="material-icons float-left">mode_edit</i>登録
+          <% end %>
+          </li>
+          <li>
+            <%= link_to "/users/sign_in", :method => :get do %>
+              <i class="material-icons float-left">perm_identity</i>ログイン
+            <% end %>
+          </li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+          <li>
+          <%= link_to "/users/sign_up", :method => :get do %>
+            <i class="material-icons float-left">mode_edit</i>登録
+          <% end %>
+          </li>
+          <li>
+            <%= link_to "/users/sign_in", :method => :get do %>
+              <i class="material-icons float-left">perm_identity</i>ログイン
+            <% end %>
+          </li>
+      </ul>
+    <% end %>
+  </div>
+</nav>
