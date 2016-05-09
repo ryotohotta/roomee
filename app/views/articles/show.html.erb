@@ -43,7 +43,7 @@
     <% if @talks %>
       <% @talks.each do | talk | %>
         <li class="collection-item avatar">
-          <%= image_tag('yozawa.jpg', :class => "user-img circle responsive-img") %>
+          <%= image_tag(talk.user.avatar.url, :class => "user-img circle responsive-img") %>
           <span class="title username">
             <%= link_to talk.user.nickname, "/users/#{talk.user_id}" %>
           </span>
@@ -54,8 +54,8 @@
 
     <% if current_user %>
       <li class="collection-item avatar">
-        <%= image_tag(@article.user.avatar.url, :class => "user-img circle responsive-img") %>
-        <span class="title username"><%= @article.user.nickname %></span>
+        <%= image_tag(current_user.avatar.url, :class => "user-img circle responsive-img") %>
+        <span class="title username"><%= current_user.nickname %></span>
         <div class="row">
           <%= form_tag("/articles/#{@article.id}/talks", method: :post, class: "col s12") do %>
             <div class="row">
