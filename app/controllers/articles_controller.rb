@@ -5,7 +5,8 @@ class ArticlesController < ApplicationController
   end
   def index
     @articles = Article.includes(:user).all
-    @article = Article.includes(:user).all
+    @article = Article.find_by(id: params[:id])
+    @likes = Like.where(article_id: params[:id])
   end
   def show
     @article = Article.find(params[:id])

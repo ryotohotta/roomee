@@ -1,0 +1,2 @@
+<% binding.pry %>
+$("#like-button").html("<%= j(render partial: 'like', locals: { article: @article, likes: @likes, like: @like}) %>")

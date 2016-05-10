@@ -4,11 +4,11 @@ $(function(){
     /**
      * jTinder initialization
      */
-    $(".a-info").click(function(){
+    $(".a-info, .like-button").click(function(){
       var href = $(this).attr('href');
       location.href = href;
     });
-    $(".a-info").bind('touchstart',function() {
+    $(".a-info, .like-button").bind('touchstart',function() {
       event.preventDefault();
       $(this).trigger('click');
     });

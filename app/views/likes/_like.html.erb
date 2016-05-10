@@ -1,0 +1,10 @@
+<% if user_signed_in? %>
+  <% if article.like_user(current_user.id) %>
+    
+  <% else %>
+    <%= link_to article_likes_path(article), method: 'post', id: "like-button", remote: true do %>
+      <p>like</p>
+      <span><%= article.likes_count %></span>
+    <% end %>
+  <% end %>
+<% end %>
