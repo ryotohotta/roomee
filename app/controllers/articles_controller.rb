@@ -15,6 +15,12 @@ class ArticlesController < ApplicationController
   def create
     Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id)
   end
+  def destroy
+    article = Article.find(params[:id])
+    if article.user_id == current_user.id
+      article.destroy
+    end
+  end
 
   private
   def article_params
