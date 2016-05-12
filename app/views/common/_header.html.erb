@@ -1,11 +1,18 @@
 
 <nav class="teal darken-2">
   <div class="nav-wrapper">
-    <%= link_to "ROOMEE", "/", :class => "brand-logo" %>
+    <% if user_signed_in? %>
+      <%= link_to "ROOMEE", "/", :class => "brand-logo" %>
+    <% else %>
+      <%= link_to "ROOMEE", "/top/index", :class => "brand-logo" %>
+    <% end %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <% if user_signed_in? %>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/users/<%= current_user.id %>"><i class="material-icons float-left">perm_identity</i>マイページ</a></li>
+        <li>
+          <a href="/users/<%= current_user.id %>">
+          <i class="material-icons float-left">perm_identity</i>マイページ</a>
+        </li>
         <li>
           <%= link_to "/articles/new", :method => :get do %>
             <i class="material-icons float-left">perm_media</i>投稿する
