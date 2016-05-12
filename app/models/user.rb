@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :talks
   has_many :likes
+  has_many :liked_articles, through: :likes, source: :article
   has_attached_file :avatar,
                       styles:  { medium: "300x300#", thumb: "100x100#" }
   validates_attachment_content_type :avatar,

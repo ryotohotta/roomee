@@ -4,11 +4,11 @@ $(function(){
     /**
      * jTinder initialization
      */
-    $(".a-info, .like-button").click(function(){
+    $(".a-info").click(function(){
       var href = $(this).attr('href');
       location.href = href;
     });
-    $(".a-info, .like-button").bind('touchstart',function() {
+    $(".a-info").bind('touchstart',function() {
       event.preventDefault();
       $(this).trigger('click');
     });
@@ -20,7 +20,23 @@ $(function(){
         },
       // like callback
         onLike: function (item) {
-          // set the status text
+          // ajaxでlikeを送信, item-liのid取得
+          var id_num = item.attr("id");
+          var id_name = "#like-button-" + id_num;
+          $(id_name).trigger('click');
+
+          // $.ajax({
+          //   url: "articles/29/likes",
+          //   type: 'POST',
+          //   dataType: 'html',
+          //   data: {like: {id: 1, user_id: 3, article_id: 29 }},
+          // })
+          // .done(function() {
+          //   console.log("success");
+          // })
+          // .fail(function() {
+          //   console.log("error");
+          // });
         },
       animationRevertSpeed: 200,
       animationSpeed: 400,

@@ -16,12 +16,35 @@
   .card-action{
     width: 100%;
     margin: 0;
-    padding: 18px;
+    padding: 18px 0px;
     .tag-wrapper{
       margin-bottom: 5px;
       .col{
         line-height: 1.5em;
       }
     }
+  }
+}
+
+.tab-set{
+  .card{
+    .card-image{
+        .card-title{
+          img{
+            width: 30px;
+          }
+        }
+      }
+      .card-content{
+        padding: 20px 10px;
+        .card-title{
+          .row{
+            margin: 0;
+          }
+        }
+        .info{
+          padding: 0;
+        }
+      }
   }
 }

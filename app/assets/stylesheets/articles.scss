@@ -33,6 +33,22 @@ img.user-img{
       left: 0;
       text-align: center;
       border: 1px solid #eee;
+      .card-image{
+        .card-title{
+          img{
+            width: 30px;
+          }
+        }
+      }
+      .card-content{
+        padding: 20px 10px;
+        .info{
+          padding: 0;
+        }
+      }
+      #like-buttons{
+        display: none;
+      }
     }
     li:nth-child(1) {
       -webkit-transform: rotate(-1deg);
@@ -50,6 +66,9 @@ img.user-img{
     }
   }
 }
+
+
+
 
 .actions{
   margin-top: 40px;

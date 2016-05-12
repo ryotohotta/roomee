@@ -4,7 +4,8 @@ class UsersController < ApplicationController
     @nickname = user.nickname
     @articles = user.articles
     @avatar = user.avatar
-    @user = User.find(params[:id])
+    @likes = user.likes
+    @liked_articles = user.liked_articles.uniq
   end
   def likes
     @user = User.find(params[:id])

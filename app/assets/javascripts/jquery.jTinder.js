@@ -46,12 +46,6 @@
       current_pane = panes.length - 1;
       $that = this;
 
-      // $(element).bind('touchstart mousedown', function () {
-      //   timer = setTimeout( function () {
-      //     $(this).handler;
-      //     this.handler;
-      //   }, interval);
-      // });
       $(element).bind('touchstart mousedown', this.handler);
       $(element).bind('touchmove mousemove', this.handler);
       $(element).bind('touchend mouseup', this.handler);

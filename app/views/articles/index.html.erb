@@ -4,27 +4,29 @@
     <ul class="cards panels">
 
       <% @articles.each do |article| %>
-          <li class="card panel">
+          <li class="card panel" id="<%= article.id %>">
             <div class="card-image waves-effect waves-block waves-light">
               <%= image_tag(article.image.thumb.url, :class => "card-img") %>
+              <span class="card-title">
+                <%= image_tag("like.png", :class => "float-left") %>
+                <p class="float-left"><%= article.likes_count %></p>
+              </span>
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">
                 <div class="row">
                   <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
-                  <div class="col s5">
+                  <div class="col s7">
                     <span class="username avatar"><%= article.user.nickname %></span>
                   </div>
                   <div class="info col s2">
                     <%= link_to "/articles/#{article.id}", :method => :get, :class => "a-info" do %>
-                    <%= image_tag('info.png') %>
+                      <%= image_tag('info.png') %>
                     <% end %>
                   </div>
-
-                    <div class="like-button col s2">
-                      <%= render :partial => "likes/like", locals: { article: article } %>
-                    </div>
-
+                  <div id="like-buttons">
+                    <%= render :partial => "likes/like", locals: { article: article} %>
+                  </div>
                 </div>
               </span>
             </div>

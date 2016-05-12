@@ -6,8 +6,8 @@
         <span class="card-title username"><%= current_user.nickname %></span>
       </div>
       <div class="card-content row">
-        <div class="num-info col s6">23 posts</div>
-        <div class="num-info col s6">40 likes</div>
+        <div class="num-info col s6"><%= current_user.articles.count %> posts</div>
+        <div class="num-info col s6"><%= current_user.likes.count %> likes</div>
         <div class="bio"><%= current_user.bio %></div>
       </div>
       <div class="card-action row">
@@ -15,14 +15,14 @@
           <ul class="tabs">
             <li class="tab col s3">
               <a href="#tab1"><div class="tag-wrapper row">
-                  <div class="col s5 valign-wrapper"><%= image_tag(current_user.avatar.url, :class => "user-img circle responsive-img valign") %></div>
-                  <div class="col s7 teal-text text-darken-2"><%= current_user.nickname %><br>のPhoto</div>
+                  <div class="col s4 valign-wrapper"><%= image_tag(current_user.avatar.url, :class => "user-img circle responsive-img valign") %></div>
+                  <div class="col s8 teal-text text-darken-2"><%= current_user.nickname %><br>のPhoto</div>
                 </div></a>
             </li>
             <li class="tab col s3">
               <a href="#tab2"><div class="tag-wrapper row">
-                  <div class="col s5"><%= image_tag("like.png", :class => "responsive-img") %></div>
-                  <div class="col s7 teal-text text-darken-2"><%= current_user.nickname %><br>のLike</div>
+                  <div class="col s4"><%= image_tag("like.png", :class => "responsive-img") %></div>
+                  <div class="col s8 teal-text text-darken-2"><%= current_user.nickname %><br>のLike</div>
                 </div></a>
             </li>
           </ul>
@@ -30,61 +30,73 @@
       </div>
     </div>
 
-    <div id="tab1">
+    <div id="tab1" class="tab-set">
       <ul class="cards panels">
 
-        <% current_user.articles.each_with_index do |article, i| %>
-            <li class="card panel">
-              <div class="card-image waves-effect waves-block waves-light">
-                <%= image_tag(article.image.thumb.url, :class => "card-img") %>
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">
-                  <div class="row">
-                    <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
-                    <div class="col s6">
-                      <span class="username avatar"><%= article.user.nickname %></span>
-                    </div>
-                    <div class="info col s3">
-                      <%= link_to "/articles/#{article.id}", :method => :get, :class => "a-info" do %>
-                      <%= image_tag('info.png') %>
-                      <% end %>
-                    </div>
+        <% @articles.each do |article| %>
+
+          <li class="card panel">
+            <div class="card-image waves-effect waves-block waves-light">
+              <%= image_tag(article.image, :class => "card-img") %>
+              <span class="card-title">
+                <%= image_tag("like.png", :class => "float-left") %>
+                <p class="float-left"><%= article.likes_count %></p>
+              </span>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                <div class="row">
+                  <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
+                  <div class="col s7">
+                    <span class="username avatar"><%= article.user.nickname %></span>
                   </div>
-                </span>
-              </div>
-              <div class="like"></div>
-              <div class="dislike"></div>
-            </li>
+                  <div class="info col s2">
+                    <%= link_to "/articles/#{article.id}", :method => :get, :class => "a-info" do %>
+                      <%= image_tag('info.png') %>
+                    <% end %>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </li>
+
         <% end %>
 
       </ul>
     </div>
-    <div id="tab2">
-      <% current_user.likes.each do |article| %>
-        <li class="card panel">
-          <div class="card-image waves-effect waves-block waves-light">
-            <%= image_tag(article.image.thumb.url, :class => "card-img") %>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">
-              <div class="row">
-                <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
-                <div class="col s6">
-                  <span class="username avatar"><%= article.user.nickname %></span>
+    <div id="tab2" class="tab-set">
+      <ul class="cards panels">
+
+        <% @liked_articles.each do |article| %>
+
+          <li class="card panel">
+            <div class="card-image waves-effect waves-block waves-light">
+              <%= image_tag(article.image, :class => "card-img") %>
+              <span class="card-title">
+                <%= image_tag("like.png", :class => "float-left") %>
+                <p class="float-left"><%= article.likes_count %></p>
+              </span>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                <div class="row">
+                  <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
+                  <div class="col s7">
+                    <span class="username avatar"><%= article.user.nickname %></span>
+                  </div>
+                  <div class="info col s2">
+                    <%= link_to "/articles/#{article.id}", :method => :get, :class => "a-info" do %>
+                      <%= image_tag('info.png') %>
+                    <% end %>
+                  </div>
                 </div>
-                <div class="info col s3">
-                  <%= link_to "/articles/#{article.id}", :method => :get, :class => "a-info" do %>
-                  <%= image_tag('info.png') %>
-                  <% end %>
-                </div>
-              </div>
-            </span>
-          </div>
-          <div class="like"></div>
-          <div class="dislike"></div>
-        </li>
-      <% end %>
+              </span>
+            </div>
+          </li>
+
+        <% end %>
+
+      </ul>
     </div>
   </div>
 </div>
