@@ -1,11 +1,153 @@
-<div class="top">
-  <p>image</p>
-  <h1>ROOMEEへようこそ！</h1>
-  <p>おしゃれな部屋をシェアしちゃおう！</p>
-</div>
-<div class="contents">
-  <div class="sign-in-buttons">
-    <a href="">アカウント作成</a>
-    <a href="">twitterログイン</a>
+  <div class="slider">
+    <ul class="slides">
+      <li>
+        <%= image_tag("house3.jpg") %>
+        <div class="caption center-align"><h1>インテリアの<br>写真を<br>シェアしよう</h1></div>
+      </li>
+      <li>
+        <%= image_tag("house2.jpg") %><div class="caption left-align">
+          <h1>お気に入りの<br>部屋を<br>見つけよう！</h1>
+        </div>
+      </li>
+      <li>
+        <%= image_tag("mobile1.jpg") %><div class="caption right-align">
+          <h1>スマホで<br>見やすい！<br>使いやすい！</h1>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+<div class="contents  top-contents">
+  <div class="sign-in-buttons center-align">
+    <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large" , :method => :get do %>アカウント作成
+    <% end %>
+    <p>or</p>
+    <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large light-blue lighten-1" , :method => :get do %>Twitterでログイン
+    <% end %>
+    <%= link_to "ログインはこちら" ,"/users/sign_in", :class => "waves-effect waves-teal btn-flat" , :method => :get %>
   </div>
 </div>
+<hr>
+
+
+<div class="top-swipes center-align">
+  <h1>スワイプで簡単楽しい！</h1>
+  <div class="card-wrapper">
+    <div class="swipe-cards">
+      <ul class="panels">
+        <div class="contents  top-contents">
+          <br><br><br>
+          <h1>もっと楽しみたい方は、登録してね</h1>
+          <div class="sign-in-buttons center-align">
+            <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large btn-top" , :method => :get do %>アカウント作成
+            <% end %>
+            <p>or</p>
+            <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large light-blue lighten-1 btn-top" , :method => :get do %>Twitterでログイン
+            <% end %>
+            <%= link_to "ログインはこちら" ,"/users/sign_in", :class => "waves-effect waves-teal btn-flat btn-top" , :method => :get %>
+          </div>
+        </div>
+        <li class="panel">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag("isonoke.jpg", :class => "card-img") %>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator">
+                <div class="row">
+                    <div class="col s3"><%= image_tag("sazae.jpg", :class => "user-img circle responsive-img") %></div>
+                    <div class="col s8">
+                      <span class="username">
+                        Sazae
+                      </span>
+                    </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </li>
+        <li class="panel">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag("house2.jpg", :class => "card-img") %>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator">
+                <div class="row">
+                    <div class="col s3"><%= image_tag("yozawa.jpg", :class => "user-img circle responsive-img") %></div>
+                    <div class="col s8">
+                      <span class="username">
+                        yozawa
+                      </span>
+                    </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </li>
+        <li class="panel">
+          <div class="card">
+            <div class="card-image">
+              <%= image_tag("house1.jpg", :class => "card-img") %>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator">
+                <div class="row">
+                    <div class="col s3"><%= image_tag("avatar.jpg", :class => "user-img circle responsive-img") %></div>
+                    <div class="col s8">
+                      <span class="username">
+                        kana@roomee
+                      </span>
+                    </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="actions row">
+  <div class="col s6">
+    <a href="" class="dislike">
+      <%= image_tag('dislike.png') %>
+    </a>
+  </div>
+  <div class="col s6 right">
+    <a href="" class="like">
+      <%= image_tag('like.png') %>
+    </a>
+  </div>
+  </div>
+</div>
+<hr>
+
+<div class="contents  top-contents">
+  <div class="sign-in-buttons center-align">
+    <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large" , :method => :get do %>アカウント作成
+    <% end %>
+    <p>or</p>
+    <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large light-blue lighten-1" , :method => :get do %>Twitterでログイン
+    <% end %>
+    <%= link_to "ログインはこちら" ,"/users/sign_in", :class => "waves-effect waves-teal btn-flat" , :method => :get %>
+  </div>
+</div>
+<hr>
+<div class="promos center-align">
+  <h1>ROOMEEで<br>マイルームを世界とつなげよう</h1>
+  <div class="promo center-align"><%= image_tag("photo.png") %><h1>1.写真をシェアしよう</h1></div>
+  <div class="promo center-align"><%= image_tag("like-top.png") %><h1>2.お気に入りを見つけよう</h1></div>
+  <div class="promo center-align"><%= image_tag("comment.png") %> <h1>3.コメントしよう</h1></div>
+</div>
+<hr>
+<div class="contents  top-contents">
+  <div class="sign-in-buttons center-align">
+    <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large" , :method => :get do %>アカウント作成
+    <% end %>
+    <p>or</p>
+    <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large light-blue lighten-1" , :method => :get do %>Twitterでログイン
+    <% end %>
+    <%= link_to "ログインはこちら" ,"/users/sign_in", :class => "waves-effect waves-teal btn-flat" , :method => :get %>
+  </div>
+</div>
+

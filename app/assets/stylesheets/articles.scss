@@ -103,7 +103,16 @@ img.user-img{
 
 .cards, .card{
     height: 100%;
+    .card-reveal{
+      .collection{
+        margin-top: 20px;
+      }
+    }
 }
+.comment-area{
+  margin-top: 30px;
+}
+
 .text-area{
   position: relative;
   margin-top: 20px;

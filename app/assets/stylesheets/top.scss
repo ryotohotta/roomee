@@ -1,3 +1,47 @@
-.top{
-  
+.slider{
+  margin: 40px 0px;
+  ul.slides{
+    li{
+      .caption{
+        h1{
+          font-size: 38px;
+          text-shadow: 2px 2px 2px #000;
+        }
+      }
+    }
+  }
+}
+
+.top-contents{
+  .sign-in-buttons{
+    .btn-large{
+      margin: 15px 0px;
+    }
+  }
+}
+.promos{
+  h1{
+      font-size: 20px;
+      line-height: 1.5em;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+  .promo{
+    margin-bottom: 20px;
+    img{
+      margin-bottom: 15px;
+    }
+    h1{
+      font-weight: normal;
+    }
+  }
+}
+.top-swipes{
+  h1{
+      font-size: 20px;
+      line-height: 1.5em;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
 }

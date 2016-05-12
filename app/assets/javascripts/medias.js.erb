@@ -12,6 +12,22 @@ $(function(){
       event.preventDefault();
       $(this).trigger('click');
     });
+    $(".a-avatar").click(function(){
+      var href = $(this).attr('href');
+      location.href = href;
+    });
+    $(".a-avatar").bind('touchstart',function() {
+      event.preventDefault();
+      $(this).trigger('click');
+    });
+    $(".btn-top").click(function(){
+      var href = $(this).attr('href');
+      location.href = href;
+    });
+    $(".btn-top").bind('touchstart',function() {
+      event.preventDefault();
+      $(this).trigger('click');
+    });
 
     $(".swipe-cards").jTinder({
       // dislike callback
@@ -65,5 +81,8 @@ $(function(){
     });
     $(document).ready(function(){
       $('ul.tabs').tabs('select_tab', 'tab_id');
+    });
+    $(document).ready(function(){
+      $('.slider').slider({full_width: true});
     });
 });
