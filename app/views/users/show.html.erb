@@ -2,27 +2,27 @@
   <div class="col s12">
     <div class="card self">
       <div class="card-image">
-        <%= image_tag(current_user.avatar.url, :class => "user-img circle responsive-img") %>
-        <span class="card-title username"><%= current_user.nickname %></span>
+        <%= image_tag(@user.avatar.url, :class => "user-img circle responsive-img") %>
+        <span class="card-title username"><%= @user.nickname %></span>
       </div>
       <div class="card-content row">
-        <div class="num-info col s6"><%= current_user.articles.count %> posts</div>
-        <div class="num-info col s6"><%= current_user.likes.count %> likes</div>
-        <div class="bio"><%= current_user.bio %></div>
+        <div class="num-info col s6"><%= @user.articles.count %> posts</div>
+        <div class="num-info col s6"><%= @user.likes.count %> likes</div>
+        <div class="bio"><%= @user.bio %></div>
       </div>
       <div class="card-action row">
         <div class="col s12">
           <ul class="tabs">
             <li class="tab col s3">
               <a href="#tab1"><div class="tag-wrapper row">
-                  <div class="col s4 valign-wrapper"><%= image_tag(current_user.avatar.url, :class => "user-img circle responsive-img valign") %></div>
-                  <div class="col s8 teal-text text-darken-2"><%= current_user.nickname %><br>のPhoto</div>
+                  <div class="col s3 valign-wrapper"><%= image_tag(@user.avatar.url, :class => "user-img circle responsive-img valign") %></div>
+                  <div class="col s9 teal-text text-darken-2"><%= @user.nickname %><br>のPhoto</div>
                 </div></a>
             </li>
             <li class="tab col s3">
               <a href="#tab2"><div class="tag-wrapper row">
-                  <div class="col s4"><%= image_tag("like.png", :class => "responsive-img") %></div>
-                  <div class="col s8 teal-text text-darken-2"><%= current_user.nickname %><br>のLike</div>
+                  <div class="col s3"><%= image_tag("like.png", :class => "responsive-img") %></div>
+                  <div class="col s9 teal-text text-darken-2"><%= @user.nickname %><br>のLike</div>
                 </div></a>
             </li>
           </ul>

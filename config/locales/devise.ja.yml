@@ -9,6 +9,7 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
+        bio: "自己紹介"
         remember_me: "ログインを記憶"
     models:
       user: "ユーザー"

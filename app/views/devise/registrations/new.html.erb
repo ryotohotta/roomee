@@ -42,6 +42,11 @@
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
 
+    <div class="field">
+      <%= f.label :bio %><br />
+      <%= f.text_field :bio, placeholder: '例：カフェスタイルのおうちが好きです！' %>
+    </div>
+
     <div class="button-wrapper center-align">
       <button class="btn-large waves-effect waves-light actions">
         <i class="material-icons right">send</i>
