@@ -53,6 +53,6 @@ gem "materialize-sass"
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
 
-group :production, :staging do
+group :production do
   gem 'rails_12factor'
 end
