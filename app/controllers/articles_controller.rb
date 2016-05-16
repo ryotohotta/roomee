@@ -13,7 +13,17 @@ class ArticlesController < ApplicationController
     @talks = @article.talks.includes(:user)
   end
   def create
-    Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id)
+    article = Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id)
+    if current_user.uid
+      client = Twitter::REST::Client.new do |config|
+        config.consumer_key         = "qLec7HB8jHsuxo0W1nsE0b10U"
+        config.consumer_secret      = "oBXTdfcdicCsqDY0mThnNN0goowHC2JCAQzFYQ9sa5HG8nqtOm"
+        config.access_token         = current_user.token
+        config.access_token_secret  = current_user.secret
+      end
+      binding.pry
+      client.update("ROOMEEに【#{article.category}】の写真を登録しました！「#{article.comment}」")
+  end
   end
   def destroy
     article = Article.find(params[:id])
