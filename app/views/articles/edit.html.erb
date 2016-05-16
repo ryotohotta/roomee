@@ -1,6 +1,6 @@
 <div class="form-wrapper">
   <%= form_for(@article, html:{class: 'image-form', method: :patch}, :html => {:multipart => true}) do |f| %>
-    <span><%= image_tag(@article.image.thumb.url, :class => "card-img circle responsive-img", :style => "width: 500px") %></span>
+    <span><%= image_tag(@article.image.url, :class => "card-img circle responsive-img", :style => "width: 500px") %></span>
     <div class="file-field input-field">
       <div class="btn">
         <span>画像を選択</span>

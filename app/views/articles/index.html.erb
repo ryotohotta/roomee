@@ -6,7 +6,7 @@
       <% @articles.each do |article| %>
           <li class="card panel" id="<%= article.id %>">
             <div class="card-image waves-effect waves-block waves-light">
-              <%= image_tag(article.image.thumb.url, :class => "card-img") %>
+              <%= image_tag(article.image.url, :class => "card-img") %>
               <span class="card-title">
                 <%= image_tag("like.png", :class => "float-left") %>
                 <p class="float-left"><%= article.likes_count %></p>

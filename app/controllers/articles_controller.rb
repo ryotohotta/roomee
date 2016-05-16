@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :move_to_index, except: :index
+  require 'open-uri'
+  OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+  OpenURI::Buffer.const_set 'StringMax', 0
   def new
     @article = Article.new
   end
@@ -21,8 +24,10 @@ class ArticlesController < ApplicationController
         config.access_token         = current_user.token
         config.access_token_secret  = current_user.secret
       end
-      binding.pry
-      client.update("ROOMEEに【#{article.category}】の写真を登録しました！「#{article.comment}」")
+      status = "ROOMEEに【#{article.category}】の写真を登録しました！「#{article.comment}」"
+      media_url = "#{article.image.url}"
+      media = open(media_url)
+      client.update_with_media(status, media)
   end
   end
   def destroy

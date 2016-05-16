@@ -55,7 +55,7 @@ gem 'rmagick', require: 'RMagick'
 gem 'twitter'
 gem 'oauth'
 gem 'omniauth-twitter'
-
+gem 'fog'
 group :production do
   gem 'rails_12factor'
 end
