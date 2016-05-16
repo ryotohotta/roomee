@@ -52,6 +52,9 @@ gem 'paperclip'
 gem "materialize-sass"
 gem 'carrierwave'
 gem 'rmagick', require: 'RMagick'
+gem 'twitter'
+gem 'oauth'
+gem 'omniauth-twitter'
 
 group :production do
   gem 'rails_12factor'

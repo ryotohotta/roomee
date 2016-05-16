@@ -3,12 +3,21 @@
     <div class="card self">
       <div class="card-image">
         <%= image_tag(@user.avatar.url, :class => "user-img circle responsive-img") %>
-        <span class="card-title username"><%= @user.nickname %></span>
+        <span class="card-title username"><%= @user.nickname %>
+        </span>
       </div>
       <div class="card-content row">
         <div class="num-info col s6"><%= @user.articles.count %> posts</div>
         <div class="num-info col s6"><%= @user.likes.count %> likes</div>
         <div class="bio"><%= @user.bio %></div>
+        <% if @user.id == current_user.id %>
+            <%= link_to edit_user_registration_path, :class => "right btn waves-effect waves-light red lighten-2 red-text text-lighten-5" , :method => :get do %>編集
+            <% end %>
+            <div class="clearfix"></div>
+            <% if current_user.uid %>
+              <p class="right">twitterと連携済み</p>
+            <% end %>
+        <% end %>
       </div>
       <div class="card-action row">
         <div class="col s12">

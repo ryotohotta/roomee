@@ -48,11 +48,8 @@
       <%= f.label :password_confirmation %><i>(変更しない場合は空欄のままで)</i><br />
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
     </div>
-
-    <div class="field">
-      <%= f.label :current_password %> <i>※必須(変更を保存するため)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off" %>
-    </div>
+    <%= link_to user_twitter_omniauth_authorize_path, :class => "waves-effect waves-light btn-large light-blue lighten-1" , :method => :get do %>twitterでログイン
+    <% end %>
 
     <div class="button-wrapper center-align">
       <button class="btn-large waves-effect waves-light actions">
