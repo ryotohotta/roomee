@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     "/users/#{current_user.id}"
   end
   def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up).push(:nickname, :avatar, :bio)
-      devise_parameter_sanitizer.for(:account_update).push(:nickname, :avatar, :bio)
+      devise_parameter_sanitizer.for(:sign_up).push(:nickname, :bio, :photo)
+      devise_parameter_sanitizer.for(:account_update).push(:nickname, :bio, :photo)
   end
 end

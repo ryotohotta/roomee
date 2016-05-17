@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517030526) do
+ActiveRecord::Schema.define(version: 20160517085009) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "name",         limit: 255
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20160517030526) do
     t.string   "uid",                    limit: 255
     t.string   "token",                  limit: 255
     t.string   "secret",                 limit: 255
+    t.string   "photo",                  limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

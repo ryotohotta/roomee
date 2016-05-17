@@ -7,7 +7,7 @@
       <span class="card-title activator">
         <div class="row">
           <%= link_to "/users/#{@article.user_id}", :method => :get, :class => "a-avatar" do %>
-            <div class="col s3"><%= image_tag(@article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
+            <div class="col s3"><%= image_tag(@article.user.photo.url, :class => "user-img circle responsive-img") %></div>
             <div class="col s8">
               <span class="username">
                 <%= @article.user.nickname %>
@@ -54,7 +54,7 @@
       <% @talks.each do | talk | %>
         <li class="collection-item avatar">
           <%= link_to "/users/#{talk.user_id}", :method => :get, :class => "a-avatar" do %>
-            <%= image_tag(talk.user.avatar.url, :class => "user-img circle responsive-img") %>
+            <%= image_tag(talk.user.photo.url, :class => "user-img circle responsive-img") %>
           <% end %>
           <span class="title username">
             <%= link_to talk.user.nickname, "/users/#{talk.user_id}" %>
@@ -66,7 +66,7 @@
 
     <% if current_user %>
       <li class="collection-item avatar">
-        <%= image_tag(current_user.avatar.url, :class => "user-img circle responsive-img") %>
+        <%= image_tag(current_user.photo.url, :class => "user-img circle responsive-img") %>
         <span class="title username"><%= current_user.nickname %></span>
         <div class="row">
           <%= form_tag("/articles/#{@article.id}/talks", method: :post, class: "col s12") do %>

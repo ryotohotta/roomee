@@ -9,11 +9,7 @@ class User < ActiveRecord::Base
   has_many :talks
   has_many :likes
   has_many :liked_articles, through: :likes, source: :article
-  has_attached_file :avatar,
-                      styles:  { medium: "300x300#", thumb: "100x100#" },
-                      default_url:  "ninja.png"
-  validates_attachment_content_type :avatar,
-                                      content_type: ["image/jpg","image/jpeg","image/png"]
+  mount_uploader :photo, PhotoUploader
   def self.update_oauth(auth, id)
     user = User.find(id)
     user.update(

@@ -17,7 +17,7 @@
                 <div class="row">
                   <%= link_to "/users/#{article.user_id}", :method => :get, :class => "a-avatar" do %>
                     <div class="col s3">
-                        <%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %>
+                        <%= image_tag(article.user.photo.thumb.url, :class => "user-img circle responsive-img") %>
                     </div>
                     <div class="col s7">
                       <span class="username avatar"><%= article.user.nickname %></span>

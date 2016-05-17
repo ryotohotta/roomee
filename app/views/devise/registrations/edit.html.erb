@@ -15,10 +15,10 @@
     </div>
 
     <div class="file-field input-field">
-      <span><%= image_tag(current_user.avatar.url, :class => "float-left user-img circle responsive-img", :style => "width: 40px") %></span>
+      <span><%= image_tag(current_user.photo.url, :class => "float-left user-img circle responsive-img", :style => "width: 40px") %></span>
       <div class="btn">
         <span>プロフィール画像を変更</span><br />
-        <%= f.file_field :avatar %><br />
+        <%= f.file_field :photo %><br />
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">

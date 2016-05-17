@@ -2,7 +2,7 @@
   <div class="col s12">
     <div class="card self">
       <div class="card-image">
-        <%= image_tag(@user.avatar.url, :class => "user-img circle responsive-img") %>
+        <%= image_tag(@user.photo.url, :class => "user-img circle responsive-img") %>
         <span class="card-title username"><%= @user.nickname %>
         </span>
       </div>
@@ -24,7 +24,7 @@
           <ul class="tabs">
             <li class="tab col s3">
               <a href="#tab1"><div class="tag-wrapper row">
-                  <div class="col s3 valign-wrapper"><%= image_tag(@user.avatar.url, :class => "user-img circle responsive-img valign") %></div>
+                  <div class="col s3 valign-wrapper"><%= image_tag(@user.photo.url, :class => "user-img circle responsive-img valign") %></div>
                   <div class="col s9 teal-text text-darken-2"><%= @user.nickname %><br>のPhoto</div>
                 </div></a>
             </li>
@@ -55,7 +55,7 @@
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4">
                 <div class="row">
-                  <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
+                  <div class="col s3"><%= image_tag(article.user.photo.url, :class => "user-img circle responsive-img") %></div>
                   <div class="col s7">
                     <span class="username avatar"><%= article.user.nickname %></span>
                   </div>
@@ -90,7 +90,7 @@
               <span class="card-title activator grey-text text-darken-4">
                 <div class="row">
                   <%= link_to "/users/#{article.user_id}", :method => :get, :class => "a-avatar" do %>
-                    <div class="col s3"><%= image_tag(article.user.avatar.url, :class => "user-img circle responsive-img") %></div>
+                    <div class="col s3"><%= image_tag(article.user.photo.url, :class => "user-img circle responsive-img") %></div>
                     <div class="col s7">
                       <span class="username avatar"><%= article.user.nickname %></span>
                     </div>

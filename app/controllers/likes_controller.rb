@@ -4,9 +4,7 @@ class LikesController < ApplicationController
     @likes = Like.where(article_id: params[:article_id])
     @articles = Article.all
     @article  = Article.find(params[:article_id])
-    # @articles = Article.includes(:user).all
-    # @article = Article.find_by(id: params[:id])
-    # @likes = Like.where(article_id: params[:id])
+
     respond_to do |format|
       format.html
       format.js

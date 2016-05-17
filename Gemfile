@@ -48,7 +48,6 @@ gem 'jquery-turbolinks'
 gem 'awesome_print', require: 'ap'
 gem 'pry-rails'
 gem 'devise'
-gem 'paperclip'
 gem "materialize-sass"
 gem 'carrierwave'
 gem 'rmagick'

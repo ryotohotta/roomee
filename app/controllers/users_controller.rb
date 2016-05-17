@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @nickname = @user.nickname
     @articles = @user.articles
-    @avatar = @user.avatar
+    @photo = @user.photo
     @likes = @user.likes
     @liked_articles = @user.liked_articles.uniq
   end
