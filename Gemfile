@@ -56,7 +56,7 @@ gem 'twitter'
 gem 'oauth'
 gem 'omniauth-twitter'
 gem 'fog'
-gem 'google-webfonts-rails'
+gem 'material_icons'
 group :production do
   gem 'rails_12factor'
 end
