@@ -19,8 +19,8 @@ class ArticlesController < ApplicationController
     article = Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id, twittercheck: article_params[:twittercheck])
     if current_user.uid && article.twittercheck == 1
       client = Twitter::REST::Client.new do |config|
-        config.consumer_key         = "qLec7HB8jHsuxo0W1nsE0b10U"
-        config.consumer_secret      = "oBXTdfcdicCsqDY0mThnNN0goowHC2JCAQzFYQ9sa5HG8nqtOm"
+        config.consumer_key         = ENV['TWITTER_KEY']
+        config.consumer_secret      = ENV['TWITTER_SECRET']
         config.access_token         = current_user.token
         config.access_token_secret  = current_user.secret
       end
