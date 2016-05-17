@@ -26,24 +26,6 @@ class User < ActiveRecord::Base
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
-      # unless user.id.nil?
-      #   user = User.update(
-      #   uid: auth.uid,
-      #   provider: auth.provider,
-      #   token: auth.credentials.token,
-      #   secret: auth.credentials.secret
-      #   )
-      # else
-      #   user = User.create(
-      #     nickname: auth.info.name,
-      #     uid:      auth.uid,
-      #     provider: auth.provider,
-      #     token: auth.credentials.token,
-      #     secret: auth.credentials.secret,
-      #     email:    User.dummy_email(auth),
-      #     password: Devise.friendly_token[0, 20]
-      #   )
-      # end
       user = User.create(
           nickname: auth.info.name,
           uid:      auth.uid,

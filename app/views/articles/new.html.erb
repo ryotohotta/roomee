@@ -21,12 +21,12 @@
     </div>
     <% if current_user.uid %>
     <div class="switch left">
-      <p class="light-blue-text text-lighten-1">twitterにも投稿する</p>
+      <p>twitterにも投稿する</p>
         <label>
-          On
-          <input type="checkbox">
+          0ff
+          <%= f.check_box :twittercheck, {:checked => true}, 1, 0 %>
           <span class="lever"></span>
-          Off
+          On
         </label>
     </div>
     <% else %>

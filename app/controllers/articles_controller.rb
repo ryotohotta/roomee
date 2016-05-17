@@ -16,8 +16,8 @@ class ArticlesController < ApplicationController
     @talks = @article.talks.includes(:user)
   end
   def create
-    article = Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id)
-    if current_user.uid
+    article = Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id, twittercheck: article_params[:twittercheck])
+    if current_user.uid && article.twittercheck == 1
       client = Twitter::REST::Client.new do |config|
         config.consumer_key         = "qLec7HB8jHsuxo0W1nsE0b10U"
         config.consumer_secret      = "oBXTdfcdicCsqDY0mThnNN0goowHC2JCAQzFYQ9sa5HG8nqtOm"
@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
       media_url = "#{article.image.url}"
       media = open(media_url)
       client.update_with_media(status, media)
-  end
+    end
   end
   def destroy
     article = Article.find(params[:id])
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:name, :image, :category, :comment)
+    params.require(:article).permit(:name, :image, :category, :comment, :twittercheck)
   end
   def move_to_index
       redirect_to action: :index unless user_signed_in?
