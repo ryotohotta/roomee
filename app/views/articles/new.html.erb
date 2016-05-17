@@ -13,12 +13,34 @@
       <%= f.select :category, ["外観", "リビング", "ベッドルーム", "キッチン", "玄関", "バルコニー", "庭", "オフィス"], :prompt => "選んでください" %>
       <%= f.label :category, "カテゴリー" %>
     </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <%= f.text_area :comment, :class => "materialize-textarea" %>
-          <%= f.label :icon_prefix2, "コメントする" %>
-       </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.text_area :comment, :class => "materialize-textarea" %>
+        <%= f.label :icon_prefix2, "コメントする" %>
+     </div>
+    </div>
+    <% if current_user.uid %>
+    <div class="switch left">
+      <p class="light-blue-text text-lighten-1">twitterにも投稿する</p>
+        <label>
+          On
+          <input type="checkbox">
+          <span class="lever"></span>
+          Off
+        </label>
+    </div>
+    <% else %>
+      <p>twitterと連携していません</p>
+      <div class="switch left">
+        <label>
+          On
+          <input disabled type="checkbox">
+          <span class="lever"></span>
+          Off
+        </label>
       </div>
+    <% end %>
+    <div class="clearfix"></div>
     <button class="btn-large waves-effect waves-light right" name="action">
       <%= f.submit "投稿する" %>
     </button>
