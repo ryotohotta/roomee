@@ -51,7 +51,7 @@ gem 'devise'
 gem 'paperclip'
 gem "materialize-sass"
 gem 'carrierwave'
-gem 'rmagick', :require => 'RMagick'
+gem 'rmagick'
 gem 'twitter'
 gem 'oauth'
 gem 'omniauth-twitter'
