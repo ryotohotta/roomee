@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'top/index'
 
-  root 'articles#index'
+  root 'top#index'
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :articles do
     resources :talks, only: [:create]

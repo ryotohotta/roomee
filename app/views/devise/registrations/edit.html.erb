@@ -65,5 +65,5 @@
   <% end %>
 </div>
 
-<div class="links_wrapper"><div class="right"><%= button_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></div>
+<div class="links_wrapper"><div class="right"><%= link_to "退会する", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></div>
   <%= link_to "戻る", :back %></div>
