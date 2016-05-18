@@ -11,7 +11,9 @@
         <div class="num-info col s6"><%= @user.likes.count %> likes</div>
         <div class="bio"><%= @user.bio %></div>
         <% if @user.id == current_user.id %>
-            <%= link_to edit_user_registration_path, :class => "right btn waves-effect waves-light red lighten-2 red-text text-lighten-5" , :method => :get do %>編集
+            <%= link_to edit_user_registration_path, :class => "right btn waves-effect waves-light red lighten-2 red-text text-lighten-5" , :method => :get do %>
+              <i class="material-icons tiny left">edit</i>
+              編集
             <% end %>
             <div class="clearfix"></div>
             <% if current_user.uid %>

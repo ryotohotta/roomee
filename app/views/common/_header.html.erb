@@ -10,6 +10,11 @@
     <% if user_signed_in? %>
       <ul class="right hide-on-med-and-down">
         <li>
+          <%= link_to "/articles/", :method => :get do %>
+            <i class="material-icons float-left">swap_horiz</i>ROOMEEする
+          <% end %>
+        </li>
+        <li>
           <a href="/users/<%= current_user.id %>">
           <i class="material-icons float-left">perm_identity</i>マイページ</a>
         </li>
@@ -30,6 +35,11 @@
         </li>
       </ul>
       <ul class="side-nav" id="mobile-demo">
+        <li>
+          <%= link_to "/articles/", :method => :get do %>
+            <i class="material-icons float-left">swap_horiz</i>ROOMEE
+          <% end %>
+        </li>
         <li><a href="/users/<%= current_user.id %>"><i class="material-icons float-left">perm_identity</i>マイページ</a></li>
         <li>
           <%= link_to "/articles/new", :method => :get do %>
