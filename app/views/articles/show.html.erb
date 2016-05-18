@@ -3,8 +3,8 @@
     <div class="card-image">
       <%= image_tag(@article.image.url, :class => "card-img") %>
       <span class="card-title">
-        <%= image_tag("like.png", :class => "float-left") %>
-        <p class="float-left"><%= @article.likes.count %></p>
+        <%= image_tag("like.png", :class => "float-left", :style => "width: 30px") %>
+        <p class="float-left red-text text-lighten-2"><%= @article.likes_count %></p>
       </span>
     </div>
     <div class="card-content">
@@ -29,8 +29,15 @@
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">メニュー<i class="material-icons right">close</i></span>
       <div class="collection">
-        <%= link_to "この投稿を編集する", "/articles/#{@article.id}/edit", :class => "collection-item" %>
-        <%= link_to "この投稿を削除する", "/articles/#{@article.id}", method: :delete, :class => "collection-item" %>
+        <%= link_to "/articles/#{@article.id}/edit", :class => "collection-item" do %>
+          <i class="material-icons">edit</i>
+          <p class="left">この投稿を編集する </p>
+        <% end %>
+        <%= link_to "/articles/#{@article.id}", method: :delete, :class => "collection-item" do %>
+          <i class="material-icons">delete_sweep</i>
+          <p class="left">この投稿を削除する </p>
+        <% end %>
+        <div class="clearfix"></div>
       </div>
     </div>
   </div>
@@ -65,7 +72,10 @@
           </span>
           <p class="comment"><%= talk.text %></p>
           <% if current_user %>
-            <%= link_to "削除" , "/articles/#{talk.article_id}/talks/#{talk.id}", :method => :delete, :class => "right", :style => "font-size: 12px" %>
+            <%= link_to "/articles/#{talk.article_id}/talks/#{talk.id}", :method => :delete, :class => "right", :style => "font-size: 12px" do %>
+              <i class="material-icons">delete_sweep</i>
+              <p class="right">削除</p>
+            <% end %>
             <div class="clearfix"></div>
           <% end %>
         </li>

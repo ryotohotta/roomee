@@ -15,7 +15,7 @@
             <% end %>
             <div class="clearfix"></div>
             <% if current_user.uid %>
-              <p class="right ">twitterと連携済み</p>
+              <p class="right "><i class="material-icons">check</i>twitterと連携済み</p>
             <% end %>
         <% end %>
       </div>
@@ -49,7 +49,7 @@
               <%= image_tag(article.image, :class => "card-img") %>
               <span class="card-title">
                 <%= image_tag("like.png", :class => "float-left") %>
-                <p class="float-left"><%= article.likes_count %></p>
+                <p class="float-left red-text text-lighten-2"><%= article.likes_count %></p>
               </span>
             </div>
             <div class="card-content">
@@ -83,7 +83,7 @@
               <%= image_tag(article.image, :class => "card-img") %>
               <span class="card-title">
                 <%= image_tag("like.png", :class => "float-left") %>
-                <p class="float-left"><%= article.likes_count %></p>
+                <p class="float-left red-text text-lighten-2"><%= article.likes_count %></p>
               </span>
             </div>
             <div class="card-content">
