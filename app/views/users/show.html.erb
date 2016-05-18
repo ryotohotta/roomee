@@ -16,6 +16,9 @@
             <div class="clearfix"></div>
             <% if current_user.uid %>
               <p class="right "><i class="material-icons">check</i>twitterと連携済み</p>
+            <% else %>
+              <%= link_to user_twitter_omniauth_authorize_path, :class => "right waves-effect waves-light btn light-blue lighten-1" , :method => :get, :style => "magin: 0px" do %>twitterと連携
+              <% end %>
             <% end %>
         <% end %>
       </div>
