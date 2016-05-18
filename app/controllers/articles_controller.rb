@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
   end
   def create
     article = Article.create(image: article_params[:image], category: article_params[:category], comment: article_params[:comment], user_id: current_user.id, twittercheck: article_params[:twittercheck])
+
+    # twitter 同時投稿
     if current_user.uid && article.twittercheck == 1
       client = Twitter::REST::Client.new do |config|
         config.consumer_key         = ENV['TWITTER_KEY']
@@ -30,6 +32,7 @@ class ArticlesController < ApplicationController
       client.update_with_media(status, media)
     end
   end
+
   def destroy
     article = Article.find(params[:id])
     if article.user_id == current_user.id

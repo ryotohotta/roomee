@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :likes
   has_many :liked_articles, through: :likes, source: :article
   mount_uploader :photo, PhotoUploader
+
+  # twitter outh
   def self.update_oauth(auth, id)
     user = User.find(id)
     user.update(
@@ -37,6 +39,7 @@ class User < ActiveRecord::Base
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
   end
+  # パスワードの入力なしでもusers_edit許可
   def update_without_current_password(params, *options)
    params.delete(:current_password)
 

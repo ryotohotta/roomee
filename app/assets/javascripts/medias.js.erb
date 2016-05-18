@@ -32,27 +32,12 @@ $(function(){
     $(".swipe-cards").jTinder({
       // dislike callback
         onDislike: function (item) {
-          // set the status text
         },
-      // like callback
         onLike: function (item) {
           // ajaxでlikeを送信, item-liのid取得
           var id_num = item.attr("id");
           var id_name = "#like-button-" + id_num;
           $(id_name).trigger('click');
-
-          // $.ajax({
-          //   url: "articles/29/likes",
-          //   type: 'POST',
-          //   dataType: 'html',
-          //   data: {like: {id: 1, user_id: 3, article_id: 29 }},
-          // })
-          // .done(function() {
-          //   console.log("success");
-          // })
-          // .fail(function() {
-          //   console.log("error");
-          // });
         },
       animationRevertSpeed: 700,
       animationSpeed: 900,
@@ -69,19 +54,23 @@ $(function(){
       $(".swipe-cards").jTinder($(this).attr('class'));
     });
 
+    // materialbox initialization
     $(document).ready(function(){
       $('.materialboxed').materialbox();
     });
+    // material_select initialization
     $(document).ready(function() {
       $('select').material_select();
     });
 
+    // tab initialization
     $(document).ready(function(){
       $('ul.tabs').tabs();
     });
     $(document).ready(function(){
       $('ul.tabs').tabs('select_tab', 'tab_id');
     });
+    // slider initialization
     $(document).ready(function(){
       $('.slider').slider({full_width: true});
     });
