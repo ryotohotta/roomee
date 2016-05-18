@@ -2,6 +2,10 @@
   <div class="card">
     <div class="card-image">
       <%= image_tag(@article.image.url, :class => "card-img") %>
+      <span class="card-title">
+        <%= image_tag("like.png", :class => "float-left") %>
+        <p class="float-left"><%= @article.likes.count %></p>
+      </span>
     </div>
     <div class="card-content">
       <span class="card-title activator">
@@ -60,6 +64,10 @@
             <%= link_to talk.user.nickname, "/users/#{talk.user_id}" %>
           </span>
           <p class="comment"><%= talk.text %></p>
+          <% if current_user %>
+            <%= link_to "削除" , "/articles/#{talk.article_id}/talks/#{talk.id}", :method => :delete, :class => "right", :style => "font-size: 12px" %>
+            <div class="clearfix"></div>
+          <% end %>
         </li>
       <% end %>
     <% end %>

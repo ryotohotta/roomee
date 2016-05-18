@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'top#index'
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions', omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :articles do
-    resources :talks, only: [:create]
+    resources :talks, only: [:create, :destroy]
     resources :likes, only: [:create, :destroy]
   end
   get "tweet/input"
