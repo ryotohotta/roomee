@@ -39,12 +39,12 @@
           <br><br>
           <h1>もっと楽しみたい方は、登録してね</h1>
           <div class="sign-in-buttons center-align">
-            <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large btn-top" , :method => :get do %>アカウント作成
+            <%= link_to "/users/sign_up", :class => "waves-effect waves-light btn-large btn-top a-info" , :method => :get do %>アカウント作成
             <% end %>
             <p>or</p>
-            <%= link_to user_twitter_omniauth_authorize_path, :class => "waves-effect waves-light btn-large light-blue lighten-1" , :method => :get do %>twitterでログイン
+            <%= link_to user_twitter_omniauth_authorize_path, :class => "waves-effect waves-light btn-large light-blue lighten-1 a-info" , :method => :get do %>twitterでログイン
             <% end %>
-            <%= link_to "ログインはこちら" ,"/users/sign_in", :class => "waves-effect waves-teal btn-flat btn-top" , :method => :get %>
+            <%= link_to "ログインはこちら" ,"/users/sign_in", :class => "waves-effect waves-teal btn-flat btn-top a-info" , :method => :get %>
           </div>
         </div>
         <li class="panel">
